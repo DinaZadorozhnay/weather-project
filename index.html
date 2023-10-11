@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courgette&family=Hanken+Grotesk&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="block-weather">
+        <div class="row weather-header">
+          <div class="col-1"></div>
+          <div class="col">
+            <form id="searchForm">
+              <div class="form-group">
+                <input
+                  type="search"
+                  name="city"
+                  placeholder="Enter a city..."
+                  id="searchInput"
+                  autocomplete="off"
+                  autofocus
+                />
+                <button class="search-button">
+                  <img
+                    src="img/search.svg"
+                    alt=""
+                    width="17px"
+                    class="searchImg"
+                  />
+                </button>
+              </div>
+            </form>
+
+            <button id="currentLocationButton">Current Location</button>
+
+            <h1 id="currentCity" class="currentCity">Frankfurt-am-Mine</h1>
+            <h3>
+              <span id="day">Thursday</span>, <span id="time">17:53</span>
+            </h3>
+          </div>
+          <div class="col-2">
+            <img src="img/sun.svg" width="100px" alt="" class="currentImg" />
+          </div>
+          <div class="col-4">
+            <div class="currentWeather">
+              <span id="currentTemp" class="currentTemp">-23</span>
+
+              <div class="measures">
+                <span id="currentMeasure" class="currentMeasure">°C</span>|
+                <button id="changeMeasure" class="changeMeasure">°F</button>
+              </div>
+            </div>
+            <div class="labels">
+              <span class="label">MAX <span id="today-max">+36</span></span>
+              <span class="label">MIN <span id="today-min">+16</span></span>
+            </div>
+            <div class="weatherDetails">
+              <span id="today-description" class="description"
+                >Partly cloudy</span
+              >
+              <br />Wind <span id="today-wind">16</span> m/s
+            </div>
+          </div>
+        </div>
+
+        <div class="row table">
+          <div class="col-1"></div>
+          <div class="col">
+            <div class="row days">
+              <div class="col weatherTable">
+                <div class="day">Fri</div>
+              </div>
+
+              <div class="col weatherTable">
+                <div class="day">Sat</div>
+              </div>
+              <div class="col weatherTable">
+                <div class="day">Sun</div>
+              </div>
+              <div class="col weatherTable">
+                <div class="day">Mon</div>
+              </div>
+              <div class="col weatherTable">
+                <div class="day">Tue</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col weatherTable">
+                <img
+                  src="img/partlyCloud.svg"
+                  class="tableIMG"
+                  alt=""
+                  width="50px"
+                />
+
+                <div class="labels">
+                  <span class="label">MAX +26</span>
+                  <span class="label">MIN +26</span>
+                </div>
+                <div class="weatherDetails">
+                  Partly cloudy <br />Wind 16 km/h
+                </div>
+              </div>
+
+              <div class="col weatherTable">
+                <img
+                  src="img/partlyCloud.svg"
+                  class="tableIMG"
+                  alt=""
+                  width="50px"
+                />
+                <div class="labels">
+                  <span class="label">MAX +26</span>
+                  <span class="label">MIN +26</span>
+                </div>
+                <div class="weatherDetails">
+                  Partly cloudy <br />Wind 16 km/h
+                </div>
+              </div>
+              <div class="col weatherTable">
+                <img
+                  src="img/partlyCloud.svg"
+                  class="tableIMG"
+                  alt=""
+                  width="50px"
+                />
+                <div class="labels">
+                  <span class="label">MAX +26</span>
+                  <span class="label">MIN +26</span>
+                </div>
+                <div class="weatherDetails">
+                  Partly cloudy <br />Wind 16 km/h
+                </div>
+              </div>
+              <div class="col weatherTable">
+                <img
+                  src="img/partlyCloud.svg"
+                  class="tableIMG"
+                  alt=""
+                  width="50px"
+                />
+                <div class="labels">
+                  <span class="label">MAX +26</span>
+                  <span class="label">MIN +26</span>
+                </div>
+                <div class="weatherDetails">
+                  Partly cloudy <br />Wind 16 km/h
+                </div>
+              </div>
+              <div class="col weatherTable">
+                <img
+                  src="img/partlyCloud.svg"
+                  class="tableIMG"
+                  alt=""
+                  width="50px"
+                />
+                <div class="labels">
+                  <span class="label">MAX +26</span>
+                  <span class="label">MIN +26</span>
+                </div>
+                <div class="weatherDetails">
+                  Partly cloudy <br />Wind 16 km/h
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-1"></div>
+        </div>
+      </div>
+    </div>
+    <script src="./src/main.js"></script>
+  </body>
+</html>
