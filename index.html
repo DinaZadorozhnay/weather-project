@@ -22,8 +22,7 @@
   <body>
     <div class="container">
       <div class="block-weather">
-        <div class="row weather-header">
-          <div class="col-1"></div>
+        <div class="row weather-header d-flex justify-content-around">
           <div class="col">
             <form id="searchForm">
               <div class="form-group">
@@ -36,12 +35,7 @@
                   autofocus
                 />
                 <button class="search-button">
-                  <img
-                    src="img/search.svg"
-                    alt=""
-                    width="17px"
-                    class="searchImg"
-                  />
+                  <img src="img/search.svg" alt="" width="17px" />
                 </button>
               </div>
             </form>
@@ -69,18 +63,16 @@
               <span class="label">MAX <span id="today-max">+36</span></span>
               <span class="label">MIN <span id="today-min">+16</span></span>
             </div>
-            <div class="weatherDetails">
-              <span id="today-description" class="description"
-                >Partly cloudy</span
-              >
-              <br />Wind <span id="today-wind">16</span> m/s
-            </div>
+            <ul class="weatherDetails">
+              <li id="today-description" class="description">Partly cloudy</li>
+              <li>Wind <span id="today-wind">16</span> m/s</li>
+              <li>Humidity <span id="today-humidity">75</span>%</li>
+            </ul>
           </div>
         </div>
 
-        <div class="row table">
-          <div class="col-1"></div>
-          <div class="col">
+        <div class="row table d-flex justify-content-around">
+          <div class="col tableWrapper">
             <div class="row days">
               <div class="col weatherTable">
                 <div class="day">Fri</div>
@@ -101,20 +93,17 @@
             </div>
             <div class="row">
               <div class="col weatherTable">
-                <img
-                  src="img/partlyCloud.svg"
-                  class="tableIMG"
-                  alt=""
-                  width="50px"
-                />
+                <img src="img/cloud.svg" class="tableIMG" alt="" width="50px" />
 
                 <div class="labels">
                   <span class="label">MAX +26</span>
                   <span class="label">MIN +26</span>
                 </div>
-                <div class="weatherDetails">
-                  Partly cloudy <br />Wind 16 km/h
-                </div>
+                <ul class="weatherDetails">
+                  <li class="description">Partly cloudy</li>
+                  <li>Wind <span class="wind">16</span> m/s</li>
+                  <li>Humidity <span class="humidity">75</span>%</li>
+                </ul>
               </div>
 
               <div class="col weatherTable">
@@ -128,9 +117,11 @@
                   <span class="label">MAX +26</span>
                   <span class="label">MIN +26</span>
                 </div>
-                <div class="weatherDetails">
-                  Partly cloudy <br />Wind 16 km/h
-                </div>
+                <ul class="weatherDetails">
+                  <li class="description">Partly cloudy</li>
+                  <li>Wind <span class="wind">16</span> m/s</li>
+                  <li>Humidity <span class="humidity">75</span>%</li>
+                </ul>
               </div>
               <div class="col weatherTable">
                 <img
@@ -143,9 +134,11 @@
                   <span class="label">MAX +26</span>
                   <span class="label">MIN +26</span>
                 </div>
-                <div class="weatherDetails">
-                  Partly cloudy <br />Wind 16 km/h
-                </div>
+                <ul class="weatherDetails">
+                  <li class="description">Partly cloudy</li>
+                  <li>Wind <span class="wind">16</span> m/s</li>
+                  <li>Humidity <span class="humidity">75</span>%</li>
+                </ul>
               </div>
               <div class="col weatherTable">
                 <img
@@ -158,9 +151,11 @@
                   <span class="label">MAX +26</span>
                   <span class="label">MIN +26</span>
                 </div>
-                <div class="weatherDetails">
-                  Partly cloudy <br />Wind 16 km/h
-                </div>
+                <ul class="weatherDetails">
+                  <li class="description">Partly cloudy</li>
+                  <li>Wind <span class="wind">16</span> m/s</li>
+                  <li>Humidity <span class="humidity">75</span>%</li>
+                </ul>
               </div>
               <div class="col weatherTable">
                 <img
@@ -173,13 +168,14 @@
                   <span class="label">MAX +26</span>
                   <span class="label">MIN +26</span>
                 </div>
-                <div class="weatherDetails">
-                  Partly cloudy <br />Wind 16 km/h
-                </div>
+                <ul class="weatherDetails">
+                  <li class="description">Partly cloudy</li>
+                  <li>Wind <span class="wind">16</span> m/s</li>
+                  <li>Humidity <span class="humidity">75</span>%</li>
+                </ul>
               </div>
             </div>
           </div>
-          <div class="col-1"></div>
         </div>
         <div class="git-hub">
           <a

@@ -37,10 +37,12 @@ function changeWeather(response) {
   let tempMin = response.data.main.temp_min;
   let description = response.data.weather[0].description;
   let wind = response.data.wind.speed;
+  let humidity = response.data.main.humidity;
   currentTemp.innerHTML = roundTemp(temp);
   todayTempMax.innerHTML = roundTemp(tempMax);
   todayTempMin.innerHTML = roundTemp(tempMin);
   todayDescription.innerHTML = description;
+  todayHumidity.innerHTML = humidity;
   todayWind.innerHTML = Math.round(wind);
 }
 function changecity(event) {
@@ -85,6 +87,7 @@ let todayTempMax = document.querySelector("#today-max");
 let todayTempMin = document.querySelector("#today-min");
 let todayDescription = document.querySelector("#today-description");
 let todayWind = document.querySelector("#today-wind");
+let todayHumidity = document.querySelector("#today-humidity");
 
 function changeMeasures() {
   let measureForChange = currentMeasure.innerHTML;
