@@ -42,17 +42,17 @@
 
             <button id="currentLocationButton">Current Location</button>
 
-            <h1 id="currentCity" class="currentCity">Frankfurt-am-Mine</h1>
+            <h1 id="currentCity" class="currentCity"></h1>
             <h3>
-              <span id="day">Thursday</span>, <span id="time">17:53</span>
+              <span id="date"></span>
             </h3>
           </div>
           <div class="col-2">
-            <img src="img/sun.svg" width="100px" alt="" class="currentImg" />
+            <img src="" width="100px" alt="" class="currentImg" id="icon" />
           </div>
           <div class="col-4">
             <div class="currentWeather">
-              <span id="currentTemp" class="currentTemp">-23</span>
+              <span id="currentTemp" class="currentTemp"></span>
 
               <div class="measures">
                 <span id="currentMeasure" class="currentMeasure">°C</span>|
@@ -60,13 +60,13 @@
               </div>
             </div>
             <div class="labels">
-              <span class="label">MAX <span id="today-max">+36</span></span>
-              <span class="label">MIN <span id="today-min">+16</span></span>
+              <span class="label">MAX <span id="today-max"></span></span>
+              <span class="label">MIN <span id="today-min"></span></span>
             </div>
             <ul class="weatherDetails">
-              <li id="today-description" class="description">Partly cloudy</li>
-              <li>Wind <span id="today-wind">16</span> m/s</li>
-              <li>Humidity <span id="today-humidity">75</span>%</li>
+              <li id="today-description" class="description"></li>
+              <li>Wind <span id="today-wind"></span> m/s</li>
+              <li>Humidity <span id="today-humidity"></span>%</li>
             </ul>
           </div>
         </div>
@@ -186,6 +186,6 @@
         </div>
       </div>
     </div>
-    <script src="./src/main.js"></script>
+    <script src="./src/index.js"></script>
   </body>
 </html>
