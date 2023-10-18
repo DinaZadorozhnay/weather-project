@@ -1,7 +1,6 @@
 let weatherApiKey = "7746bdeabca928cfedcad71e52fd9d66";
 let timeApiKey = "6XCJExCg6xl9Msle0jbAgg==RLPL7Ko2QBEMoXTz";
 
-let changeMeasureButton = document.querySelector("#changeMeasure");
 let currentLocationButton = document.querySelector("#currentLocationButton");
 let searchFormElement = document.querySelector("#searchForm");
 
@@ -65,7 +64,7 @@ function showDate(response) {
 
 /**
  * changing measures
- */
+ let changeMeasureButton = document.querySelector("#changeMeasure");
 function changeMeasures() {
   let currentMeasureElement = document.querySelector("#currentMeasure");
   let measureForChange = currentMeasureElement.innerHTML;
@@ -97,6 +96,11 @@ function changeTemp() {
     );
   }
 }
+
+changeMeasureButton.addEventListener("click", function () {
+  changeMeasures();
+  changeTemp();
+});
 /**End of changing measures */
 function showCity(city) {
   let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherApiKey}&&units=metric`;
@@ -140,7 +144,6 @@ function formatDay(timestamp) {
   return days[day];
 }
 function showForecast(response) {
-  console.log(response.data.daily);
   let forecast = response.data.daily;
   let forecastTableElement = document.querySelector("#forecastTable");
   let forecastHTML = `<div class="row days">`;
@@ -183,11 +186,6 @@ function showForecast(response) {
 }
 
 currentLocationButton.addEventListener("click", showCurrentLocationWeather);
-
-changeMeasureButton.addEventListener("click", function () {
-  changeMeasures();
-  changeTemp();
-});
 
 searchFormElement.addEventListener("submit", changeCity);
 
