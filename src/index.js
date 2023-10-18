@@ -14,23 +14,26 @@ let currentDateElement = document.querySelector("#date");
 let currentCityElement = document.querySelector("#currentCity");
 let currentIconElement = document.querySelector("#icon");
 let searchFormElement = document.querySelector("#searchForm");
+let celsTemp = null;
+let todayTempMax = null;
+let todayTempMin = null;
 
 /**
 ShowWeather and date, time functions
  */
 
 function showWeather(response) {
-  let temp = response.data.main.temp;
-  let tempMax = response.data.main.temp_max;
-  let tempMin = response.data.main.temp_min;
+  celsTemp = response.data.main.temp;
+  todayTempMax = response.data.main.temp_max;
+  todayTempMin = response.data.main.temp_min;
   let description = response.data.weather[0].description;
   let wind = response.data.wind.speed;
   let humidity = response.data.main.humidity;
   let icon = response.data.weather[0].icon;
   currentCityElement.innerHTML = response.data.name;
-  currentTempElement.innerHTML = roundTemp(temp);
-  todayTempMaxElement.innerHTML = roundTemp(tempMax);
-  todayTempMinElement.innerHTML = roundTemp(tempMin);
+  currentTempElement.innerHTML = roundTemp(celsTemp);
+  todayTempMaxElement.innerHTML = roundTemp(todayTempMax);
+  todayTempMinElement.innerHTML = roundTemp(todayTempMin);
   todayDescriptionElement.innerHTML = description;
   todayHumidityElement.innerHTML = humidity;
   todayWindElement.innerHTML = Math.round(wind);
@@ -63,25 +66,15 @@ function changeMeasures() {
   currentMeasureElement.innerHTML = changeMeasureButton.innerHTML;
   changeMeasureButton.innerHTML = measureForChange;
 }
-function convertToCels(temp) {
+function convertToFar(temp) {
   temp = temp * 1.8 + 32;
   return roundTemp(temp);
 }
-function convertToFar(temp) {
-  temp = (temp - 32) / 1.8;
-  return roundTemp(temp);
-}
 function changeTemp() {
-  if (currentMeasureElement.innerHTML.toString().trim() === "°F") {
-    currentTempElement.innerHTML = convertToCels(
-      parseInt(currentTempElement.innerHTML)
-    );
-    todayTempMaxElement.innerHTML = convertToCels(
-      parseInt(todayTempMaxElement.innerHTML)
-    );
-    todayTempMinElement.innerHTML = convertToCels(
-      parseInt(todayTempMinElement.innerHTML)
-    );
+  if (currentMeasureElement.innerHTML.toString().trim() === "°C") {
+    currentTempElement.innerHTML = roundTemp(celsTemp);
+    todayTempMaxElement.innerHTML = roundTemp(todayTempMax);
+    todayTempMinElement.innerHTML = roundTemp(todayTempMin);
   } else {
     currentTempElement.innerHTML = convertToFar(
       parseInt(currentTempElement.innerHTML)
@@ -116,5 +109,6 @@ changeMeasureButton.addEventListener("click", function () {
   changeTemp();
 });
 
-showCity("New York");
 searchFormElement.addEventListener("submit", changeCity);
+
+showCity("New York");
