@@ -1,11 +1,6 @@
 let weatherApiKey = "7746bdeabca928cfedcad71e52fd9d66";
 let timeApiKey = "6XCJExCg6xl9Msle0jbAgg==RLPL7Ko2QBEMoXTz";
 
-let city = "New York";
-
-let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherApiKey}&&units=metric`;
-let timeUrl = `https://api.api-ninjas.com/v1/worldtime?city=${city}&&X-Api-Key=${timeApiKey}`;
-
 let currentMeasureElement = document.querySelector("#currentMeasure");
 let changeMeasureButton = document.querySelector("#changeMeasure");
 let currentTempElement = document.querySelector("#currentTemp");
@@ -15,9 +10,10 @@ let todayDescriptionElement = document.querySelector("#today-description");
 let todayWindElement = document.querySelector("#today-wind");
 let todayHumidityElement = document.querySelector("#today-humidity");
 let currentDateElement = document.querySelector("#date");
-let searchInputElement = document.querySelector("#searchInput");
+
 let currentCityElement = document.querySelector("#currentCity");
 let currentIconElement = document.querySelector("#icon");
+let searchFormElement = document.querySelector("#searchForm");
 
 /**
 ShowWeather and date, time functions
@@ -99,15 +95,26 @@ function changeTemp() {
   }
 }
 /**End of changing measures */
-
-axios.get(weatherUrl).then(showWeather);
-axios
-  .get(timeUrl, {
-    headers: { "X-Api-Key": timeApiKey },
-  })
-  .then(showDate);
+function showCity(city) {
+  let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherApiKey}&&units=metric`;
+  let timeUrl = `https://api.api-ninjas.com/v1/worldtime?city=${city}&&X-Api-Key=${timeApiKey}`;
+  axios.get(weatherUrl).then(showWeather);
+  axios
+    .get(timeUrl, {
+      headers: { "X-Api-Key": timeApiKey },
+    })
+    .then(showDate);
+}
+function changeCity(event) {
+  event.preventDefault();
+  let searchInputElement = document.querySelector("#searchInput");
+  showCity(searchInputElement.value);
+}
 
 changeMeasureButton.addEventListener("click", function () {
   changeMeasures();
   changeTemp();
 });
+
+showCity("New York");
+searchFormElement.addEventListener("submit", changeCity);
