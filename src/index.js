@@ -10,10 +10,11 @@ let todayDescriptionElement = document.querySelector("#today-description");
 let todayWindElement = document.querySelector("#today-wind");
 let todayHumidityElement = document.querySelector("#today-humidity");
 let currentDateElement = document.querySelector("#date");
-
+let currentLocationButton = document.querySelector("#currentLocationButton");
 let currentCityElement = document.querySelector("#currentCity");
 let currentIconElement = document.querySelector("#icon");
 let searchFormElement = document.querySelector("#searchForm");
+let searchInputElement = document.querySelector("#searchInput");
 let celsTemp = null;
 let todayTempMax = null;
 let todayTempMin = null;
@@ -100,9 +101,28 @@ function showCity(city) {
 }
 function changeCity(event) {
   event.preventDefault();
-  let searchInputElement = document.querySelector("#searchInput");
   showCity(searchInputElement.value);
 }
+
+/**current location weather */
+function showCurrentLocationWeather(event) {
+  navigator.geolocation.getCurrentPosition(function (position) {
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+    let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${weatherApiKey}&&units=metric`;
+    let timeUrl = `https://api.api-ninjas.com/v1/worldtime?`;
+    axios.get(weatherUrl).then(showWeather);
+    axios
+      .get(timeUrl, {
+        headers: { "X-Api-Key": timeApiKey },
+        params: { lat: lat, lon: lon },
+      })
+      .then(showDate);
+  });
+  searchInputElement.value = null;
+}
+
+currentLocationButton.addEventListener("click", showCurrentLocationWeather);
 
 changeMeasureButton.addEventListener("click", function () {
   changeMeasures();
