@@ -99,14 +99,7 @@ input::placeholder {
 .description {
   text-transform: capitalize;
 }
-.line {
-  position: relative;
-  top: 30px;
-  width: 83%;
-  right: 13px;
-  border-top: 2px solid #333344;
-  z-index: 100;
-}
+
 .tableWrapper {
   margin: 0 60px;
 }
@@ -121,9 +114,7 @@ input::placeholder {
   line-height: 20px;
   padding: 10px 0;
 }
-.days {
-  border-bottom: 2px solid #333344;
-}
+
 .tableImg {
   display: block;
   margin: 0 auto;

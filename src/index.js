@@ -15,6 +15,7 @@ let currentCityElement = document.querySelector("#currentCity");
 let currentIconElement = document.querySelector("#icon");
 let searchFormElement = document.querySelector("#searchForm");
 let searchInputElement = document.querySelector("#searchInput");
+
 let celsTemp = null;
 let todayTempMax = null;
 let todayTempMin = null;
@@ -122,6 +123,34 @@ function showCurrentLocationWeather(event) {
   searchInputElement.value = null;
 }
 
+function showForecast() {
+  let forecastTableElement = document.querySelector("#forecastTable");
+  let forecastHTML = `<div class="row days">`;
+  let days = ["Fri", "Sat", "Sun", "Mon", "Tue"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+              <div class="col weatherTable">
+                <div class="day">${day}</div>
+                <img src="img/cloud.svg" class="tableIMG" alt="" width="50px" />
+
+                <div class="labels">
+                  <span class="label">MIN +26</span>
+                  <span class="label">MAX +26</span>
+                </div>
+                <ul class="weatherDetails">
+                  <li class="description">Partly cloudy</li>
+                  <li>Wind <span class="wind">16</span> m/s</li>
+                  <li>Humidity <span class="humidity">75</span>%</li>
+                </ul>
+              </div>
+            `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastTableElement.innerHTML = forecastHTML;
+}
+
 currentLocationButton.addEventListener("click", showCurrentLocationWeather);
 
 changeMeasureButton.addEventListener("click", function () {
@@ -132,3 +161,4 @@ changeMeasureButton.addEventListener("click", function () {
 searchFormElement.addEventListener("submit", changeCity);
 
 showCity("New York");
+showForecast();
